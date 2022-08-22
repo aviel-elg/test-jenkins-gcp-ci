@@ -9,6 +9,11 @@ pipeline {
         cleanWs()
       }
     }
+    stage('checkout') {
+      steps {
+        checkoutScm('main')
+      }
+    }
     stage('tf init') {
       steps {
         sh '/opt/homebrew/bin/terraform init'
