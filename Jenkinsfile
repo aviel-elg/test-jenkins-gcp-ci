@@ -11,7 +11,7 @@ pipeline {
     }
     stage('test') {
       steps {
-        withCredentials([file(credentialsId: 'gcloud-creds', variable: 'GCLOUD_CREDS')]) {
+        withCredentials([file(credentialsId: 'gcloud-secret-file', variable: 'GCLOUD_CREDS')]) {
           sh './terraform apply -auto-approve -no-color -var="creds_path=$GCLOUD_CREDS"'
         }
       }
