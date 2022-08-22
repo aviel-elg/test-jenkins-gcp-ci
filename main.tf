@@ -30,3 +30,7 @@ resource "google_artifact_registry_repository" "aviels-repo" {
   description   = "example docker repository"
   format        = "DOCKER"
 }
+
+variable "creds_path" {
+  type = string
+}
