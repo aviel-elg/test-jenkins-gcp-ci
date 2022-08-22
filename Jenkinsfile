@@ -11,7 +11,7 @@ pipeline {
     }
     stage('checkout') {
       steps {
-        checkoutScm('main')
+        checkout scm
       }
     }
     stage('tf init') {
