@@ -21,8 +21,8 @@ pipeline {
     }
     stage('tf apply') {
       steps {
-        withCredentials([file(credentialsId: 'gcloud-secret-file', variable: 'GCLOUD_CREDS')]) {
-          sh '/opt/homebrew/bin/terraform apply -auto-approve -no-color -var="creds_path=$GCLOUD_CREDS"'
+        withCredentials([file(credentialsId: 'gcloud-secret-file', variable: 'GOOGLE_APPLICATION_CREDENTIALS')]) {
+          sh '/opt/homebrew/bin/terraform apply -auto-approve -no-color -var="creds_path=$GOOGLE_APPLICATION_CREDENTIALS"'
         }
       }
     }

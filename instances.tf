@@ -48,9 +48,8 @@ resource "google_compute_disk" "unencrypted_disk" {
 }
 
 terraform {
-  backend "s3" {
-    bucket = "arn:aws:s3:::aviel-jenkins-tf-tests"
-    key    = "tfstate"
-    region = "us-east-2"
+  backend "gcs" {
+    bucket  = "aviel-test"
+    prefix  = "terraform/state"
   }
 }
